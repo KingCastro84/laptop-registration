@@ -1,0 +1,17 @@
+
+
+PROG  = DeviceAuthenticatorApp2
+SRC = ${PROG}.c           
+CC = gcc
+
+CFLAGS = $(shell pkg-config --cflags gtk4)
+
+LIBS = $(shell pkg-config --libs gtk4) -lsqlite3
+
+
+${PROG}:${SRC}
+	      ${CC} -o  $@ $^ ${CFLAGS} ${LIBS}
+clean:
+	    rm -f ${PROG}
+
+.PHONY:  clean
